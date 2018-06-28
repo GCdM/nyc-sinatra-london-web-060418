@@ -2,10 +2,10 @@
 <form class="" action="/landmarks" method="post">
 
   <label for="">Name:</label>
-  <input type="text" name="landmark[name]" value="">
+  <input id="landmark_name" type="text" name="landmark[name]" value="">
 
   <label for="">Year completed:</label>
-  <input type="text" name="landmark[year_completed]" value="">
+  <input id="landmark_year_completed" type="text" name="landmark[year_completed]" value="">
 
   <label for="figure_select">Figure:</label>
   <select id="figure_select" name="landmark[figure_id]">
@@ -14,4 +14,6 @@
       <% end %>
 
   </select>
+
+  <input id="Create New Landmark" type="submit" />
 </form>

@@ -6,11 +6,14 @@
   </head>
   <body>
 
-    <form class="" action="/landmarks" method="post">
+    <form class="" action="/landmarks/<%= @landmark.id %>" method="post">
       <input type="hidden" name="_method" value="patch" />
 
       <label for="">Name:</label>
-      <input type="text" name="landmark[name]" value="<%= @landmark.name %>">
+      <input id="name" type="text" name="landmark[name]" value="<%= @landmark.name %>">
+
+      <label for="">Year completed:</label>
+      <input id="year_completed" type="text" name="landmark[year_completed]" value="<%= @landmark.year_completed %>">
 
       <label for="figure_select">Figure:</label>
       <select id="figure_select" name="landmark[figure_id]">
@@ -21,12 +24,13 @@
           <% end %>
 
       </select>
+      <input id="Edit Landmark" type="submit" />
     </form>
 
     <form action="/landmarks/<%= @landmark.id %>" method="post">
       <input type="hidden" name="_method" value="delete" />
       <input type="submit" name="" value="Delete Landmark">
     </form>
-    
+
   </body>
 </html>
