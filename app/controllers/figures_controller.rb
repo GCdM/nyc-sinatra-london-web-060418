@@ -7,6 +7,8 @@ class FiguresController < ApplicationController
 
   get '/figures/new' do
     @figure = Figure.new
+    @titles = Title.all
+    @landmarks = Landmark.all
     erb :"figures/show"
   end
 
@@ -22,12 +24,30 @@ class FiguresController < ApplicationController
 
   post '/figures' do
     figure = Figure.create(params[:figure])
+
+    if !params[:new_title][:name].empty?
+      figure.titles << Title.create(params[:new_title])
+    end
+
+    if !params[:new_landmark][:name].empty?
+      figure.landmarks << Landmark.create(params[:new_landmark])
+    end
+
     redirect "/figures/#{figure.id}"
   end
 
   patch '/figures/:id' do
     figure = Figure.find(params[:id])
     figure.update(params[:figure])
+
+    if !params[:new_title][:name].empty?
+      figure.titles << Title.create(params[:new_title])
+    end
+
+    if !params[:new_landmark][:name].empty?
+      figure.landmarks << Landmark.create(params[:new_landmark])
+    end
+    
     redirect :"figures/#{figure.id}"
   end
 

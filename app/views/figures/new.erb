@@ -5,8 +5,33 @@
   <input id="figure_name" type="text" name="figure[name]" />
 
   <br></br>
+  <label>Select Figure's Title(s): </label>
+  <br></br>
 
-  <label for="figure_titles">Figure's Title(s): </label>
+  <% @titles.each do |title| %>
+    <input type="checkbox" name="figure[title_ids][]" value="<%= title.id %>"/>
+  <% end %>
+
+  <br></br>
+  <label>Create new Title: </label>
+  <br></br>
+
+  <input type="text" name="new_title[name]"/>
+
+  <br></br>
+  <label>Select Figure's Landmark(s): </label>
+  <br></br>
+
+  <% @landmarks.each do |landmark| %>
+    <input type="checkbox" name="figure[landmark_ids][]" value="<%= landmark.id %>"/>
+  <% end %>
+
+  <br></br>
+  <label>Create new Landmark: </label>
+  <br></br>
+
+  <input type="text" name="new_landmark[name]"/>
+  <input type="text" name="new_landmark[year_completed]"/>
 
   <input id="submit" type="submit" />
 </form>

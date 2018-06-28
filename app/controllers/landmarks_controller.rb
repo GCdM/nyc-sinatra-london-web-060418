@@ -37,7 +37,4 @@ class LandmarksController < ApplicationController
     landmark.destroy
     redirect "/landmarks"
   end
-
-
-
 end
