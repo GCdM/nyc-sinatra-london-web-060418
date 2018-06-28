@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Create a new landmark</title>
+  </head>
+  <body>
+
+    <form class="" action="/landmarks" method="post">
+
+      <label for="">Name:</label>
+      <input type="text" name="landmark[name]" value="">
+
+      <label for="figure_select">Figure:</label>
+      <select id="figure_select" name="landmark[figure_id]">
+        <% @figures.each do |figure| %>
+          <option value="<%= figure.id %>"><%= figure.name %></option>
+          <% end %>
+
+      </select>
+    </form>
+  </body>
+</html>
